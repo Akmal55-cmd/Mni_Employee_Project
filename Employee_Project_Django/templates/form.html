@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Add Employee</h2>
+<center>
+    <h2>{{msg}}</h2>
+<form method="post">
+    {%csrf_token%}
+    Name: <input type="text" name="name"> <br><br>
+    Email: <input type="email" name="email"> <br><br>
+    Age: <input type="number" name="age"> <br><br>
+    Salary: <input type="number" name="salary"> <br><br>
+    Department:
+    <select name="department">
+        {%for i in dept_data%}
+        <option value="{{i.id}}">{{i.name}}
+        </option>
+        {% endfor %}
+    </select> <br><br>
+    Company: 
+    <select name="company">
+        {% for i in comp_data %}
+        <option value="{{i.id}}">{{i.name}}
+        </option>
+        {% endfor %}
+    </select> 
+     <br><br>
+    Address: <input type="text" name="address"> <br><br>
+
+    <input type="Submit" value="Submit">
+
+</form>
+</center>
+{% endblock %}

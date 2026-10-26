@@ -1,0 +1,10 @@
+#Main urls
+
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('App1.urls')),
+    path('',include('App2.urls'))
+]

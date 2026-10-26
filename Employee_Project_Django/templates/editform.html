@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<h1>Update Value</h1>
+<h3>{{emp}}</h3>
+
+<h2>Add Employee</h2>
+<center>
+    <h2>{{msg}}</h2>
+<form method="post">
+    {%csrf_token%}
+    Name: <input type="text" name="name" value="{{emp.name}}"> <br><br>
+    Email: <input type="email" name="email" value="{{emp.email}}"> <br><br>
+    Age: <input type="number" name="age" value="{{emp.age}}"> <br><br>
+    Salary: <input type="number" name="salary" value="{{emp.salary}}"> <br><br>
+    Department:
+    <select name="department">
+        {%for i in dept_data%}
+        <option value="{{dept_data.id}}">{{dept_data.name}}
+        </option>
+        {% endfor %}
+    </select> <br><br>
+    Company: 
+    <select name="company">
+        {% for i in comp_data %}
+        <option value="{{comp_data.id}}">{{comp_data.name}}
+        </option>
+        {% endfor %}
+    </select> 
+     <br><br>
+    Address: <input type="text" name="address" value="{{emp.address}}"> <br><br>
+
+    <input type="Submit" value="edit">
+
+</form>
+</center>
+{% endblock %}
